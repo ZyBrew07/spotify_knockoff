@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/model/artist/tracks/track_album_model.dart';
 import 'package:flutter_application_1/screen/dashboard.dart';
 import 'package:hive/hive.dart';
@@ -91,7 +92,7 @@ Widget buildFavoriteTile(TrackAlbumModel model) {
                         margin: const EdgeInsets.only(left: 8.0, top: 8.0),
                         height: 20,
                         width: 20,
-                        child: Image.asset('assets/images/spotify_gray.png'),
+                        child: Assets.images.spotifyGray.image()
                       ),
                     ),
                   ],

@@ -20,6 +20,12 @@
       "languageVersion": "3.3"
     },
     {
+      "name": "archive",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/archive-4.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "args",
       "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/args-2.6.0",
       "packageUri": "lib/",
@@ -87,7 +93,7 @@
     },
     {
       "name": "built_value",
-      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/built_value-8.9.3",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/built_value-8.9.4",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -122,6 +128,12 @@
       "languageVersion": "3.4"
     },
     {
+      "name": "color",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/color-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "convert",
       "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/convert-3.1.2",
       "packageUri": "lib/",
@@ -140,6 +152,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "dartx",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/dartx-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "dio",
       "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/dio-5.8.0+1",
       "packageUri": "lib/",
@@ -147,7 +165,7 @@
     },
     {
       "name": "dio_web_adapter",
-      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/dio_web_adapter-2.1.0",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/dio_web_adapter-2.1.1",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -183,9 +201,21 @@
     },
     {
       "name": "flutter_bloc",
-      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/flutter_bloc-9.0.0",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/flutter_bloc-9.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "flutter_gen_core",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/flutter_gen_core-5.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "flutter_gen_runner",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/flutter_gen_runner-5.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "flutter_lints",
@@ -242,6 +272,12 @@
       "languageVersion": "3.4"
     },
     {
+      "name": "hashcodes",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/hashcodes-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "hive",
       "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/hive-2.2.3",
       "packageUri": "lib/",
@@ -270,6 +306,12 @@
       "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/http_parser-4.1.2",
       "packageUri": "lib/",
       "languageVersion": "3.4"
+    },
+    {
+      "name": "image_size_getter",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/image_size_getter-2.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "io",
@@ -374,6 +416,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "path_parsing",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/path_parsing-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
       "name": "path_provider",
       "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/path_provider-2.1.5",
       "packageUri": "lib/",
@@ -410,6 +458,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "petitparser",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/petitparser-6.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
       "name": "platform",
       "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/platform-3.1.6",
       "packageUri": "lib/",
@@ -426,6 +480,12 @@
       "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/pool-1.5.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "posix",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/posix-6.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "protobuf",
@@ -578,6 +638,12 @@
       "languageVersion": "3.4"
     },
     {
+      "name": "time",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/time-2.1.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "timing",
       "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/timing-1.0.2",
       "packageUri": "lib/",
@@ -588,6 +654,18 @@
       "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/typed_data-1.4.0",
       "packageUri": "lib/",
       "languageVersion": "3.5"
+    },
+    {
+      "name": "vector_graphics_codec",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/vector_graphics_codec-1.1.13",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
+      "name": "vector_graphics_compiler",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/vector_graphics_compiler-1.1.16",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
     },
     {
       "name": "vector_math",
@@ -609,7 +687,7 @@
     },
     {
       "name": "web",
-      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/web-1.1.0",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/web-1.1.1",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },
@@ -632,6 +710,12 @@
       "languageVersion": "3.3"
     },
     {
+      "name": "xml",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/xml-6.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
       "name": "yaml",
       "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/yaml-3.1.3",
       "packageUri": "lib/",
@@ -644,7 +728,7 @@
       "languageVersion": "3.6"
     }
   ],
-  "generated": "2025-03-03T07:21:24.959413Z",
+  "generated": "2025-03-03T08:34:15.550833Z",
   "generator": "pub",
   "generatorVersion": "3.6.1",
   "flutterRoot": "file:///Users/zabdiel.yusoph/Desktop/flutter",

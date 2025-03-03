@@ -1,0 +1,26 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$TrackAlbumModelImpl _$$TrackAlbumModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$TrackAlbumModelImpl(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      isFavorite: json['isFavorite'] as bool? ?? false,
+      defaultImage: json['defaultImage'] as String? ?? null,
+      images: (json['images'] as List<dynamic>?)
+              ?.map((e) => ImageModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <ImageModel>[],
+    );
+
+Map<String, dynamic> _$$TrackAlbumModelImplToJson(
+        _$TrackAlbumModelImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'isFavorite': instance.isFavorite,
+      'defaultImage': instance.defaultImage,
+      'images': instance.images,
+    };
