@@ -6,12 +6,13 @@ import 'package:retrofit_generator/retrofit_generator.dart' as _i2;
 import 'package:freezed/builder.dart' as _i3;
 import 'package:json_serializable/builder.dart' as _i4;
 import 'package:hive_generator/hive_generator.dart' as _i5;
-import 'package:source_gen/builder.dart' as _i6;
-import 'package:flutter_gen_runner/flutter_gen_runner.dart' as _i7;
-import 'package:build_resolvers/builder.dart' as _i8;
-import 'dart:isolate' as _i9;
-import 'package:build_runner/build_runner.dart' as _i10;
-import 'dart:io' as _i11;
+import 'package:envied_generator/builder.dart' as _i6;
+import 'package:source_gen/builder.dart' as _i7;
+import 'package:flutter_gen_runner/flutter_gen_runner.dart' as _i8;
+import 'package:build_resolvers/builder.dart' as _i9;
+import 'dart:isolate' as _i10;
+import 'package:build_runner/build_runner.dart' as _i11;
+import 'dart:io' as _i12;
 
 final _builders = <_i1.BuilderApplication>[
   _i1.apply(
@@ -42,21 +43,28 @@ final _builders = <_i1.BuilderApplication>[
     appliesBuilders: const [r'source_gen:combining_builder'],
   ),
   _i1.apply(
+    r'envied_generator:envied',
+    [_i6.enviedBuilder],
+    _i1.toDependentsOf(r'envied_generator'),
+    hideOutput: true,
+    appliesBuilders: const [r'source_gen:combining_builder'],
+  ),
+  _i1.apply(
     r'source_gen:combining_builder',
-    [_i6.combiningBuilder],
+    [_i7.combiningBuilder],
     _i1.toNoneByDefault(),
     hideOutput: false,
     appliesBuilders: const [r'source_gen:part_cleanup'],
   ),
   _i1.apply(
     r'flutter_gen_runner:flutter_gen_runner',
-    [_i7.build],
+    [_i8.build],
     _i1.toDependentsOf(r'flutter_gen_runner'),
     hideOutput: false,
   ),
   _i1.apply(
     r'build_resolvers:transitive_digests',
-    [_i8.transitiveDigestsBuilder],
+    [_i9.transitiveDigestsBuilder],
     _i1.toAllPackages(),
     isOptional: true,
     hideOutput: true,
@@ -64,21 +72,21 @@ final _builders = <_i1.BuilderApplication>[
   ),
   _i1.applyPostProcess(
     r'build_resolvers:transitive_digest_cleanup',
-    _i8.transitiveDigestCleanup,
+    _i9.transitiveDigestCleanup,
   ),
   _i1.applyPostProcess(
     r'source_gen:part_cleanup',
-    _i6.partCleanup,
+    _i7.partCleanup,
   ),
 ];
 void main(
   List<String> args, [
-  _i9.SendPort? sendPort,
+  _i10.SendPort? sendPort,
 ]) async {
-  var result = await _i10.run(
+  var result = await _i11.run(
     args,
     _builders,
   );
   sendPort?.send(result);
-  _i11.exitCode = result;
+  _i12.exitCode = result;
 }

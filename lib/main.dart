@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/route/route.dart';
+import 'package:flutter_application_1/src/presentation/route/route.dart';
 // import 'package:flutter_application_1/screen/splash.dart';
-import 'package:flutter_application_1/utilities/di.dart';
+import 'package:flutter_application_1/src/application/config/di/di.dart';
 
 void main() {
   setup();
