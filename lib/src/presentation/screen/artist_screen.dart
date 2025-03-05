@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/src/application/config/gen/assets.gen.dart';
 import 'package:flutter_application_1/src/application/usecase/artist/artist_bloc.dart';
 import 'package:flutter_application_1/src/domain/model/artist/artist_model.dart';
 import 'package:flutter_application_1/src/domain/model/artist/tracks/track_album_model.dart';
@@ -31,7 +32,6 @@ class ArtistScreenState extends State<ArtistScreen> {
             TrackListWrapper? trackListWrapper = state.trackListWrapper;
             List<TrackModelWrapper>? tracks = trackListWrapper?.tracks;
             ArtistModel? artist = state.artist;
-            int trackSize = tracks != null ? tracks.length : 0;
 
             return NestedScrollView(
               headerSliverBuilder:
@@ -71,7 +71,7 @@ class ArtistScreenState extends State<ArtistScreen> {
                         child: SizedBox(
                           width: iconSize,
                           height: iconSize,
-                          child: Image.asset('assets/images/spotify.png'),
+                          child: Assets.images.spotify.image()
                         ),
                       ),
                       const SizedBox(height: 10),

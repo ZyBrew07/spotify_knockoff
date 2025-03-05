@@ -30,18 +30,18 @@ class Dashboard extends StatelessWidget {
           ArtistModelList? artistModelList = state.artistModelList;
           AlbumModelList? albumModelList = state.albumModelList;
           CategoryListWrapper? categoryListWrapper = state.categories;
-          // Hive.openBox('workoutBox');
           final box = Hive.box('workoutBox');
 
           return SingleChildScrollView(
               child: Column(children: [
             SizedBox(
                 height: 500,
-                child: buildArtistTileList(artistModelList,
+                child: ArtistListWidget(
+                    artistModelList: artistModelList,
                     onArtistClicked: (artistName, artistId) {
-                  Navigator.pushNamed(context, "/artist",
-                      arguments: SelectedArtistArgs(artistName, artistId));
-                })),
+                      Navigator.pushNamed(context, "/artist",
+                          arguments: SelectedArtistArgs(artistName, artistId));
+                    })),
             SizedBox(
                 height: 500,
                 child: buildAlbumTileList(albumModelList,

@@ -5,7 +5,6 @@ import 'package:flutter_application_1/src/presentation/screen/more_categories.da
 import 'package:flutter_application_1/src/presentation/screen/splash.dart';
 
 Route<dynamic> routes(RouteSettings settings) {
-  final args = settings.arguments;
   final name = settings.name;
 
   switch (name) {
