@@ -2,17 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/application/config/gen/assets.gen.dart';
 import 'package:flutter_application_1/src/domain/model/categories/category_list_model.dart';
 import 'package:flutter_application_1/src/domain/model/categories/category_model.dart';
-import 'package:flutter_application_1/src/presentation/screen/dashboard.dart';
 
-extension CategoryTile on Dashboard {
-  Widget buildCategoryTileList(
-      {required CategoryListModel? categoryList,
-      required Function() showAll,
-      required Function(String categoryId) onCategoryClicked}) {
-    int categoryListSize =
-        (categoryList != null ? categoryList.items.length: 0);
+class CategoryListWidget extends StatelessWidget {
 
-    return Column(children: [
+  final CategoryListModel? categoryList;
+  final Function() showAll;
+  final Function(String categoryId) onCategoryClicked;
+
+  const CategoryListWidget({
+    super.key, this.categoryList, required this.showAll, required this.onCategoryClicked
+  });
+
+  @override
+  Widget build(BuildContext context) {
+       int categoryListSize =
+        (categoryList != null ? categoryList!.items.length: 0);
+
+          return Column(children: [
       Container(
         margin: const EdgeInsets.only(left: 8.0, top: 0.0, right: 16.0),
         height: 50,

@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/application/config/gen/assets.gen.dart';
 import 'package:flutter_application_1/src/domain/model/artist/tracks/track_album_model.dart';
-import 'package:flutter_application_1/src/presentation/screen/dashboard.dart';
 import 'package:hive/hive.dart';
 
-extension CategoryTile on Dashboard {
-  Widget buildFavoriteTileList(Box box) {
+class FavoriteListWidget extends StatelessWidget {
 
-    return Column(children: [
+  final Box? box;
+
+  const FavoriteListWidget({
+    super.key, this.box
+  });
+
+  @override
+  Widget build(BuildContext context) {
+      return Column(children: [
       Container(
         margin: const EdgeInsets.only(left: 8.0, top: 0.0, right: 16.0),
         height: 50,
@@ -40,14 +46,14 @@ extension CategoryTile on Dashboard {
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
-              itemCount: box.length,
+              itemCount: box?.length != null ? box!.length : 0,
               itemBuilder: (context, index) => Container(
                     padding: const EdgeInsets.only(left: 12, right: 12),
                     child: SizedBox(
                       width: 250,
                       height: 330,
                       child: ListView(
-                        children: <Widget>[buildFavoriteTile(box.getAt(index))],
+                        children: <Widget>[_buildFavoriteTile(box?.getAt(index))],
                       ),
                     ),
                   ),
@@ -58,7 +64,7 @@ extension CategoryTile on Dashboard {
   }
 }
 
-Widget buildFavoriteTile(TrackAlbumModel model) {
+Widget _buildFavoriteTile(TrackAlbumModel model) {
   return Card(
       clipBehavior: Clip.hardEdge,
       shape: RoundedRectangleBorder(
@@ -89,11 +95,10 @@ Widget buildFavoriteTile(TrackAlbumModel model) {
                       left: 0,
                       top: 0,
                       child: Container(
-                        margin: const EdgeInsets.only(left: 8.0, top: 8.0),
-                        height: 20,
-                        width: 20,
-                        child: Assets.images.spotifyGray.image()
-                      ),
+                          margin: const EdgeInsets.only(left: 8.0, top: 8.0),
+                          height: 20,
+                          width: 20,
+                          child: Assets.images.spotifyGray.image()),
                     ),
                   ],
                 ),
@@ -107,7 +112,8 @@ Widget buildFavoriteTile(TrackAlbumModel model) {
                         image: DecorationImage(
                       fit: BoxFit.cover,
                       alignment: FractionalOffset.center,
-                      image: NetworkImage(model.defaultImage ?? model.images[0].url),
+                      image: NetworkImage(
+                          model.defaultImage ?? model.images[0].url),
                     )),
                   )),
             ],

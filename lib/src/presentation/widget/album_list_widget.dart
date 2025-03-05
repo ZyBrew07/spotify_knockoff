@@ -2,15 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/application/config/gen/assets.gen.dart';
 import 'package:flutter_application_1/src/domain/model/album/album_model.dart';
 import 'package:flutter_application_1/src/domain/model/album/album_model_list.dart';
-import 'package:flutter_application_1/src/presentation/screen/dashboard.dart';
 
-extension AlbumTile on Dashboard {
-  Widget buildAlbumTileList(AlbumModelList? albumModelList,
-      {required Function(String albumId) onAlbumClicked}) {
-    int albumListSize =
-        (albumModelList != null ? albumModelList.albums.length : 0);
+class AlbumListWidget extends StatelessWidget {
 
-    return Column(children: [
+  final AlbumModelList? albumModelList;
+  final Function (String albumId) onAlbumClicked;
+
+  const AlbumListWidget({
+    super.key, this.albumModelList, required this.onAlbumClicked
+  });
+
+  @override
+  Widget build(BuildContext context) {
+
+     int albumListSize =
+        (albumModelList != null ? albumModelList!.albums.length : 0);
+
+          return Column(children: [
       Container(
         margin: const EdgeInsets.only(left: 8.0, top: 0.0, right: 16.0),
         height: 50,

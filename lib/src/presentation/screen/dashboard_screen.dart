@@ -5,11 +5,11 @@ import 'package:flutter_application_1/src/domain/model/album/album_model_list.da
 import 'package:flutter_application_1/src/domain/model/artist/artist_model_list.dart';
 import 'package:flutter_application_1/src/domain/model/categories/category_list_wrapper.dart';
 import 'package:flutter_application_1/src/presentation/args/selected_artist_args.dart';
-import 'package:flutter_application_1/src/presentation/screen/components/album_tile.dart';
-import 'package:flutter_application_1/src/presentation/screen/components/artist_tile.dart';
-import 'package:flutter_application_1/src/presentation/screen/components/category_tile.dart';
-import 'package:flutter_application_1/src/presentation/screen/components/favorite_tile.dart';
+import 'package:flutter_application_1/src/presentation/screen/components/widget/album_list_widget.dart';
+import 'package:flutter_application_1/src/presentation/screen/components/widget/artist_list_widget.dart';
+import 'package:flutter_application_1/src/presentation/screen/components/widget/favorite_list_widget.dart';
 import 'package:flutter_application_1/src/application/config/di/di.dart';
+import 'package:flutter_application_1/src/presentation/screen/components/widget/category_list_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 
@@ -44,20 +44,24 @@ class Dashboard extends StatelessWidget {
                     })),
             SizedBox(
                 height: 500,
-                child: buildAlbumTileList(albumModelList,
-                    onAlbumClicked: (albumId) {})),
+                child: AlbumListWidget(
+                  albumModelList: albumModelList,
+                  onAlbumClicked: (albumId) {},
+                )),
             SizedBox(
                 height: 500,
-                child: buildCategoryTileList(
-                    categoryList: categoryListWrapper?.categories,
-                    showAll: () {
-                      Navigator.pushNamed(context, "/more_categories");
-                    },
-                    onCategoryClicked: (categoryId) {})),
+                child: CategoryListWidget(
+                  categoryList: categoryListWrapper?.categories,
+                  showAll: () {
+                    Navigator.pushNamed(context, "/more_categories");
+                  },
+                  onCategoryClicked: (categoryId) {},
+                )
+            ),
             if (box.isEmpty)
               const SizedBox(height: 0)
             else
-              SizedBox(height: 500, child: buildFavoriteTileList(box))
+              SizedBox(height: 500, child: FavoriteListWidget(box: box))
           ]));
         },
       ),
