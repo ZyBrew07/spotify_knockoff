@@ -2,23 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/application/config/gen/assets.gen.dart';
 import 'package:flutter_application_1/src/domain/model/categories/category_list_model.dart';
 import 'package:flutter_application_1/src/domain/model/categories/category_model.dart';
+import 'package:flutter_application_1/src/presentation/widget/list_widget.dart';
 
 class CategoryListWidget extends StatelessWidget {
-
   final CategoryListModel? categoryList;
   final Function() showAll;
   final Function(String categoryId) onCategoryClicked;
 
-  const CategoryListWidget({
-    super.key, this.categoryList, required this.showAll, required this.onCategoryClicked
-  });
+  const CategoryListWidget(
+      {super.key,
+      this.categoryList,
+      required this.showAll,
+      required this.onCategoryClicked});
 
   @override
   Widget build(BuildContext context) {
-       int categoryListSize =
-        (categoryList != null ? categoryList!.items.length: 0);
+    int categoryListSize =
+        (categoryList != null ? categoryList!.items.length : 0);
 
-          return Column(children: [
+    return Column(children: [
       Container(
         margin: const EdgeInsets.only(left: 8.0, top: 0.0, right: 16.0),
         height: 50,
@@ -65,31 +67,14 @@ class CategoryListWidget extends StatelessWidget {
           ],
         ),
       ),
-      SizedBox(
-          height: 350,
-          child: ListView.separated(
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              itemCount: categoryListSize,
-              itemBuilder: (context, index) => Container(
-                    padding: const EdgeInsets.only(left: 12, right: 12),
-                    child: SizedBox(
-                      width: 250,
-                      height: 330,
-                      child: ListView(
-                        children: <Widget>[
-                          buildCategoryTile(categoryList!.items[index],
-                              onCategoryClicked: (categoryId) {
-                            onCategoryClicked(categoryId);
-                          })
-                        ],
-                      ),
-                    ),
-                  ),
-              separatorBuilder: (context, index) => const SizedBox(
-                    height: 10,
-                  )))
+      ListWidget(
+          listSize: categoryListSize,
+          onChildrenLayout: (index) {
+            return buildCategoryTile(categoryList!.items[index],
+                onCategoryClicked: (categoryId) {
+              onCategoryClicked(categoryId);
+            });
+          })
     ]);
   }
 }
@@ -130,11 +115,10 @@ Widget buildCategoryTile(CategoryModel category,
                         left: 0,
                         top: 0,
                         child: Container(
-                          margin: const EdgeInsets.only(left: 8.0, top: 8.0),
-                          height: 20,
-                          width: 20,
-                          child: Assets.images.spotifyGray.image()
-                        ),
+                            margin: const EdgeInsets.only(left: 8.0, top: 8.0),
+                            height: 20,
+                            width: 20,
+                            child: Assets.images.spotifyGray.image()),
                       ),
                     ],
                   ),

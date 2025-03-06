@@ -1,65 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/application/config/gen/assets.gen.dart';
 import 'package:flutter_application_1/src/domain/model/artist/tracks/track_album_model.dart';
+import 'package:flutter_application_1/src/presentation/widget/list_title_widget.dart';
+import 'package:flutter_application_1/src/presentation/widget/list_widget.dart';
 import 'package:hive/hive.dart';
 
 class FavoriteListWidget extends StatelessWidget {
-
   final Box? box;
 
-  const FavoriteListWidget({
-    super.key, this.box
-  });
+  const FavoriteListWidget({super.key, this.box});
 
   @override
   Widget build(BuildContext context) {
-      return Column(children: [
-      Container(
-        margin: const EdgeInsets.only(left: 8.0, top: 0.0, right: 16.0),
-        height: 50,
-        width: double.infinity,
-        child: Stack(
-          alignment: Alignment.topLeft,
-          children: [
-            Positioned(
-              left: 0,
-              top: 0,
-              child: Container(
-                margin: const EdgeInsets.only(left: 8.0, top: 8.0),
-                height: 50,
-                width: 150,
-                child: const Text("Favorites",
-                    textAlign: TextAlign.start,
-                    style: TextStyle(
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    )),
-              ),
-            ),
-          ],
-        ),
-      ),
-      SizedBox(
-          height: 350,
-          child: ListView.separated(
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              itemCount: box?.length != null ? box!.length : 0,
-              itemBuilder: (context, index) => Container(
-                    padding: const EdgeInsets.only(left: 12, right: 12),
-                    child: SizedBox(
-                      width: 250,
-                      height: 330,
-                      child: ListView(
-                        children: <Widget>[_buildFavoriteTile(box?.getAt(index))],
-                      ),
-                    ),
-                  ),
-              separatorBuilder: (context, index) => const SizedBox(
-                    height: 10,
-                  )))
+    return Column(children: [
+      const ListTitleWidget(title: "Favorites"),
+      ListWidget(
+          listSize: box?.length != null ? box!.length : 0,
+          onChildrenLayout: (index) {
+            return _buildFavoriteTile(box?.getAt(index));
+          }),
     ]);
   }
 }

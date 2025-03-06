@@ -3,7 +3,7 @@ import 'package:flutter_application_1/src/application/usecase/more_categories/mo
 import 'package:flutter_application_1/src/domain/model/categories/category_list_model.dart';
 import 'package:flutter_application_1/src/domain/model/categories/category_list_wrapper.dart';
 import 'package:flutter_application_1/src/application/config/di/di.dart';
-import 'package:flutter_application_1/src/presentation/screen/components/widget/category_list_widget.dart';
+import 'package:flutter_application_1/src/presentation/widget/category_list_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MoreCategories extends StatelessWidget {
