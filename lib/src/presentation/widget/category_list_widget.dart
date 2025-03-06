@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/application/config/gen/assets.gen.dart';
 import 'package:flutter_application_1/src/domain/model/categories/category_list_model.dart';
 import 'package:flutter_application_1/src/domain/model/categories/category_model.dart';
+import 'package:flutter_application_1/src/presentation/widget/card_tile_network_image.dart';
+import 'package:flutter_application_1/src/presentation/widget/card_title_header.dart';
 import 'package:flutter_application_1/src/presentation/widget/list_widget.dart';
 
 class CategoryListWidget extends StatelessWidget {
@@ -95,46 +97,12 @@ Widget buildCategoryTile(CategoryModel category,
             height: 330,
             child: Column(
               children: [
-                Container(
-                  height: 80,
-                  width: double.infinity,
-                  color: Colors.white,
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Center(
-                        child: Text(category.name,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            )),
-                      ),
-                      Positioned(
-                        left: 0,
-                        top: 0,
-                        child: Container(
-                            margin: const EdgeInsets.only(left: 8.0, top: 8.0),
-                            height: 20,
-                            width: 20,
-                            child: Assets.images.spotifyGray.image()),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                    height: 250,
-                    width: double.infinity,
-                    color: Colors.green,
-                    child: Container(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                        fit: BoxFit.cover,
-                        alignment: FractionalOffset.center,
-                        image: NetworkImage(category.icons[0].url),
-                      )),
-                    )),
+                CardTitleHeader(
+                    image: Assets.images.spotifyGray.image(),
+                    text: category.name,
+                    fontSize: 20.0,
+                    height: 80),
+                CardTileNetworkImage(height: 250, url: category.icons[0].url),
               ],
             ))),
   );
