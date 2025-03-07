@@ -7,6 +7,7 @@ import 'package:flutter_application_1/src/presentation/widget/card_title_header.
 import 'package:flutter_application_1/src/presentation/widget/list_title_widget.dart';
 import 'package:flutter_application_1/src/presentation/widget/list_widget.dart';
 
+
 class AlbumListWidget extends StatelessWidget {
   final AlbumModelList? albumModelList;
   final Function(String albumId) onAlbumClicked;
