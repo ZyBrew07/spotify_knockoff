@@ -32,6 +32,7 @@ dev_dependencies:
   json_serializable: ^6.8.0
   flutter_gen_runner: ^5.9.0
   envied_generator: ^1.1.1
+  dart_either: ^2.0.0
 
 
 flutter:

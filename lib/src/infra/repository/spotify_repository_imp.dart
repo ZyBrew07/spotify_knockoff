@@ -11,6 +11,7 @@ import 'package:flutter_application_1/src/infra/repository/spotify_repository.da
 import 'package:flutter_application_1/src/application/config/di/di.dart';
 import 'package:flutter_application_1/src/application/config/environment/env.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:dart_either/dart_either.dart';
 
 class SpotifyRepositoryImp extends SpotifyRepository {
   final UserClient userClient;
@@ -20,85 +21,121 @@ class SpotifyRepositoryImp extends SpotifyRepository {
 
   @override
   Future<TokenModel> getAccessToken() async {
-    try {
-      final TokenModel token = await userClient.getAccessToken();
-      return token;
-    } on DioException {
-      return TokenModel(access_token: "");
+    Either<TokenModel, TokenModel> eitherFuture =
+        await Either.catchFutureError<TokenModel, TokenModel>(
+            (e, ar) => TokenModel(access_token: ""), () async {
+      return await userClient.getAccessToken();
+    });
+
+    if (eitherFuture.isLeft) {
+      throw (eitherFuture as Left).value;
     }
+
+    return (eitherFuture as Right).value;
   }
 
   @override
   Future<void> cacheToken(TokenModel token) async {
-    SharedPreferences pref =
-        await dependencyLocator.getAsync<SharedPreferences>();
-    pref.setString(SpotifyEnv.spotifyUserAccessTokenPrefKey,
+
+    Either<Exception, bool> eitherFuture =
+        await Either.catchFutureError<Exception, bool>(
+            (e, ar) => Exception("Unable to fetch artists."), () async {
+      return (await dependencyLocator.getAsync<SharedPreferences>()).setString(SpotifyEnv.spotifyUserAccessTokenPrefKey,
         token.access_token != null ? token.access_token! : "");
+    });
+
+    if (eitherFuture.isLeft) {
+      throw (eitherFuture as Left).value;
+    }
   }
 
   @override
   Future<ArtistModelList> getArtists(String ids) async {
-    try {
-      final ArtistModelList artistModelList =
-          await spotifyClient.getArtists(ids);
-      return artistModelList;
-    } on DioException {
-      throw Exception("Unable to fetch artists.");
+    Either<Exception, ArtistModelList> eitherFuture =
+        await Either.catchFutureError<Exception, ArtistModelList>(
+            (e, ar) => Exception("Unable to fetch artists."), () async {
+      return await spotifyClient.getArtists(ids);
+    });
+
+    if (eitherFuture.isLeft) {
+      throw (eitherFuture as Left).value;
     }
+
+    return (eitherFuture as Right).value;
   }
 
   @override
   Future<AlbumModelList> getAlbums(String ids) async {
-    try {
-      final AlbumModelList albumModelList = await spotifyClient.getAlbums(ids);
-      return albumModelList;
-    } on DioException {
-      throw Exception("Unable to fetch albums.");
+    Either<Exception, AlbumModelList> eitherFuture =
+        await Either.catchFutureError<Exception, AlbumModelList>(
+            (e, ar) => Exception("Unable to fetch albums."), () async {
+      return await spotifyClient.getAlbums(ids);
+    });
+
+    if (eitherFuture.isLeft) {
+      throw (eitherFuture as Left).value;
     }
+
+    return (eitherFuture as Right).value;
   }
 
   @override
   Future<CategoryListWrapper> getHomeScreenCategories() async {
-    try {
-      final CategoryListWrapper categoryListWrapper =
-          await spotifyClient.getHomeScreenCategories(8);
-      return categoryListWrapper;
-    } on DioException {
-      throw Exception("Unable to fetch albums.");
+    Either<Exception, CategoryListWrapper> eitherFuture =
+        await Either.catchFutureError<Exception, CategoryListWrapper>(
+            (e, ar) => Exception("Unable to fetch categories."), () async {
+      return await spotifyClient.getHomeScreenCategories(8);
+    });
+
+    if (eitherFuture.isLeft) {
+      throw (eitherFuture as Left).value;
     }
+
+    return (eitherFuture as Right).value;
   }
 
   @override
   Future<CategoryListWrapper> getMoreCategories() async {
-    try {
-      final CategoryListWrapper categoryListWrapper =
-          await spotifyClient.getHomeScreenCategories(20);
-      return categoryListWrapper;
-    } on DioException {
-      throw Exception("Unable to fetch albums.");
+    Either<Exception, CategoryListWrapper> eitherFuture =
+        await Either.catchFutureError<Exception, CategoryListWrapper>(
+            (e, ar) => Exception("Unable to fetch categories."), () async {
+      return await spotifyClient.getHomeScreenCategories(20);
+    });
+
+    if (eitherFuture.isLeft) {
+      throw (eitherFuture as Left).value;
     }
+
+    return (eitherFuture as Right).value;
   }
 
   @override
   Future<TrackListWrapper> getArtistTopTracks(String id) async {
+    Either<Exception, TrackListWrapper> eitherFuture =
+        await Either.catchFutureError<Exception, TrackListWrapper>(
+            (e, ar) => Exception("Unable to fetch artist tracks."), () async {
+      return await spotifyClient.getArtistTopTracks(id);
+    });
 
-    try {
-      final TrackListWrapper trackListWrapper =
-          await spotifyClient.getArtistTopTracks(id);
-      return trackListWrapper;
-    } on DioException {
-      throw Exception("Unable to fetch artist tracks.");
+    if (eitherFuture.isLeft) {
+      throw (eitherFuture as Left).value;
     }
+
+    return (eitherFuture as Right).value;
   }
 
   @override
   Future<ArtistModel> getArtist(String artistId) async {
-    try {
-      final ArtistModel artistModel =
-          await spotifyClient.getArtist(artistId);
-      return artistModel;
-    } on DioException {
-      throw Exception("Unable to fetch artist.");
+    Either<Exception, ArtistModel> eitherFuture =
+        await Either.catchFutureError<Exception, ArtistModel>(
+            (e, ar) => Exception("Unable to fetch artist tracks."), () async {
+      return await spotifyClient.getArtist(artistId);
+    });
+
+    if (eitherFuture.isLeft) {
+      throw (eitherFuture as Left).value;
     }
+
+    return (eitherFuture as Right).value;
   }
 }

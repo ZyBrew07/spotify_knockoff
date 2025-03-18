@@ -93,7 +93,7 @@
     },
     {
       "name": "built_value",
-      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/built_value-8.9.4",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/built_value-8.9.5",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -144,6 +144,12 @@
       "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/crypto-3.0.6",
       "packageUri": "lib/",
       "languageVersion": "3.4"
+    },
+    {
+      "name": "dart_either",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/dart_either-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "dart_style",
@@ -447,9 +453,9 @@
     },
     {
       "name": "path_provider_android",
-      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/path_provider_android-2.2.15",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/path_provider_android-2.2.16",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.6"
     },
     {
       "name": "path_provider_foundation",
@@ -519,7 +525,7 @@
     },
     {
       "name": "pub_semver",
-      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/pub_semver-2.1.5",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/pub_semver-2.2.0",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },
@@ -555,9 +561,9 @@
     },
     {
       "name": "shared_preferences_android",
-      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/shared_preferences_android-2.4.6",
+      "rootUri": "file:///Users/zabdiel.yusoph/.pub-cache/hosted/pub.dev/shared_preferences_android-2.4.8",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.6"
     },
     {
       "name": "shared_preferences_foundation",
@@ -752,7 +758,7 @@
       "languageVersion": "3.6"
     }
   ],
-  "generated": "2025-03-04T01:31:36.424109Z",
+  "generated": "2025-03-18T00:20:47.594774Z",
   "generator": "pub",
   "generatorVersion": "3.6.1",
   "flutterRoot": "file:///Users/zabdiel.yusoph/Desktop/flutter",
